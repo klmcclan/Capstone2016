@@ -14,7 +14,6 @@ public class Main {
 
       final String[] numbers = { "one", "two", "three", "four", "five" };
       final JLabel numToDisplay = new JLabel("", SwingConstants.CENTER);
-      String temp;
 
       // Initiate JFrame
       JFrame frame = new JFrame("Counting Application");
