@@ -44,13 +44,13 @@ public class Launcher extends JPanel implements ActionListener{
 		JPanel mainPanel = new JPanel();
 		
 		mainPanel = initMainPanel(mainPanel);		
-		tabbedPanel.add("EEG", mainPanel);
+		tabbedPanel.add("Main", mainPanel);
 		
 		for( int i=0; i<=8; i++) {							// Creates 8 other tabs for each region
 			
 			if(i == 0) {
 				JPanel panel = new Tabs(i);
-				tabbedPanel.add("Main", panel);
+				tabbedPanel.add("EEG", panel);
 			}
 			else {
 				JPanel panel = new Tabs(i);

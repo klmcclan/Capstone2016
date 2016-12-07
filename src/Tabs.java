@@ -16,7 +16,7 @@ public class Tabs extends JPanel {
 		
 		this.regionNum = regionNum;
 		if(regionNum == 0){
-			JLabel sector = new JLabel("Main");
+			JLabel sector = new JLabel("EEG");
 			this.add(sector);
 		}
 		else {
