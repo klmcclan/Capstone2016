@@ -1,15 +1,12 @@
 import java.awt.*;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-import java.awt.event.KeyEvent;
 
 
-public class Launcher extends JPanel{
+public class Launcher extends JPanel implements ActionListener{
 	
-	/**
-	 *  
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JFrame frame;
@@ -46,12 +43,19 @@ public class Launcher extends JPanel{
 		
 		JPanel mainPanel = new JPanel();
 		
-		mainPanel = initMainPanel(mainPanel);
+		mainPanel = initMainPanel(mainPanel);		
 		tabbedPanel.add("EEG", mainPanel);
 		
-		for( int i=1; i<=8; i++) {							// Creates 8 other tabs for each region
-			JPanel panel = new Tabs(i);
-			tabbedPanel.add("Region " + i, panel);
+		for( int i=0; i<=8; i++) {							// Creates 8 other tabs for each region
+			
+			if(i == 0) {
+				JPanel panel = new Tabs(i);
+				tabbedPanel.add("Main", panel);
+			}
+			else {
+				JPanel panel = new Tabs(i);
+				tabbedPanel.add("Region " + i, panel);
+			}
 		}
 		
 		return tabbedPanel; 
@@ -67,7 +71,7 @@ public class Launcher extends JPanel{
 				
 		BrainPanel test = new BrainPanel();
 		leftPanel.add(test);
-				
+		
 		rightPanel = new JPanel();
 		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));	
 		rightPanel.setBorder(BorderFactory.createTitledBorder(""));
@@ -78,6 +82,11 @@ public class Launcher extends JPanel{
 		mainPanel.add(leftPanel);
 		
 		return mainPanel;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("this is sort of working?");
 	}
 	
 }
