@@ -1,7 +1,11 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
@@ -13,8 +17,6 @@ public class Launcher extends JPanel implements ActionListener{
 	
 	// Left Panel
 	JPanel leftPanel;
-	JTextArea EEG1;
-	JTextArea EEG2;
 	
 	// Right Panel
 	JPanel rightPanel;
@@ -46,7 +48,7 @@ public class Launcher extends JPanel implements ActionListener{
 		mainPanel = initMainPanel(mainPanel);		
 		tabbedPanel.add("Main", mainPanel);
 		
-		for( int i=0; i<=8; i++) {							// Creates 8 other tabs for each region
+		for(int i=0; i<=8; i++) {							// Creates 8 other tabs for each region
 			
 			if(i == 0) {
 				JPanel panel = new Tabs(i);
@@ -68,9 +70,19 @@ public class Launcher extends JPanel implements ActionListener{
 		leftPanel = new JPanel(new GridLayout(1,1));
 		leftPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		leftPanel.setBorder(BorderFactory.createTitledBorder(""));
-				
-		BrainPanel test = new BrainPanel();
-		leftPanel.add(test);
+		
+		BufferedImage myPicture;
+		try {
+			myPicture = ImageIO.read(new File("src/brain_map.png"));
+			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+			leftPanel.add(picLabel);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		BrainPanel test = new BrainPanel();
+//		leftPanel.add(test);
 		
 		rightPanel = new JPanel();
 		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));	
