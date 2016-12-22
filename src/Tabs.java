@@ -34,7 +34,7 @@ public class Tabs extends JPanel {
 			
 			BufferedImage myPicture;
 			try {
-				myPicture = ImageIO.read(new File("src/eeg_map.png"));
+				myPicture = ImageIO.read(new File("src/updated_eeg_map.png"));
 				JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 				leftEEG.add(picLabel);
 			} catch (IOException e) {
