@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -71,18 +70,8 @@ public class Launcher extends JPanel implements ActionListener{
 		leftPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		leftPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
-		BufferedImage myPicture;
-		try {
-			myPicture = ImageIO.read(new File("src/brain_map.png"));
-			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-			leftPanel.add(picLabel);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-//		BrainPanel test = new BrainPanel();
-//		leftPanel.add(test);
+		BrainPanel test = new BrainPanel();
+		leftPanel.add(test);
 		
 		rightPanel = new JPanel();
 		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));	
