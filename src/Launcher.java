@@ -33,26 +33,26 @@ public class Launcher extends JPanel implements ActionListener{
 	
 	// Changed these to fit the GUI to my screen - appropriate ratio is 1.5 width/height
 	final int WIDTH = 900;	
-	final int HEIGHT = 600;
+	final int HEIGHT = 700;
 	
 	public Launcher() {                
 		MenuBar mb = new MenuBar(frame);
 	    StatusBar sb = new StatusBar(frame);
-	    sb.setVisible( true );
+	    
 		tabbedPanels = initGUI();
 		
         
         frame.setTitle("Display Values");
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension dim = toolkit.getScreenSize();
-		frame.setSize(dim.width/2, dim.height/2);
+//        Toolkit toolkit = Toolkit.getDefaultToolkit();
+//        Dimension dim = toolkit.getScreenSize();
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(tabbedPanels);
 		frame.setVisible(true);
 		
-		
+		frame.pack();
 	}
 	
 	
@@ -95,7 +95,7 @@ public class Launcher extends JPanel implements ActionListener{
 		leftPanel.add(test);
 		
 		rightPanel = new JPanel();
-		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));	
+		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		rightPanel.setBorder(BorderFactory.createTitledBorder(""));
 		JLabel right = new JLabel("right testing");	
 		rightPanel.add(right);
