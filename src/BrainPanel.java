@@ -58,6 +58,7 @@ public class BrainPanel extends JPanel
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	
 	@Override
@@ -79,5 +80,7 @@ public class BrainPanel extends JPanel
 //		g.drawLine(0, 3*height/4, width, 3*height/4);
 		
 	}
+
+	
 
 }

@@ -2,9 +2,6 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -16,7 +13,8 @@ import InfoBars.MenuBar;
 import InfoBars.StatusBar;
 
 
-public class Launcher extends JPanel implements ActionListener{
+public class Launcher extends JPanel
+{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -107,11 +105,6 @@ public class Launcher extends JPanel implements ActionListener{
 		mainPanel.add(leftPanel);
 		
 		return mainPanel;
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.out.println("this is sort of working?");
 	}
 	
 }
