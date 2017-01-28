@@ -43,7 +43,6 @@ public class MenuBar extends JMenuBar{
 		menuBar.add(mView);
 		menuBar.add(mActions);
 		
-		frame.setJMenuBar(menuBar);
 	}
 	
 	

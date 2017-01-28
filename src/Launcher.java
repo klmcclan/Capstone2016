@@ -1,4 +1,5 @@
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -32,32 +33,33 @@ public class Launcher extends JPanel implements ActionListener{
 	private JTabbedPane tabbedPanels;
 	
 	// Changed these to fit the GUI to my screen - appropriate ratio is 1.5 width/height
-	final int WIDTH = 900;	
-	final int HEIGHT = 700;
+//	final int WIDTH = 900;	
+//	final int HEIGHT = 700;
 	
-	public Launcher() {                
+	@SuppressWarnings("unused")
+	public Launcher() {             
 		MenuBar mb = new MenuBar(frame);
 	    StatusBar sb = new StatusBar(frame);
 	    
-		tabbedPanels = initGUI();
+	    initGUI();
 		
         
         frame.setTitle("Display Values");
-//        Toolkit toolkit = Toolkit.getDefaultToolkit();
-//        Dimension dim = toolkit.getScreenSize();
-		frame.setSize(WIDTH, HEIGHT);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setBounds(0, 0, screenSize.width, screenSize.height);
 		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
+		frame.setResizable(true);
+		frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(tabbedPanels);
+		frame.setJMenuBar(mb);
 		frame.setVisible(true);
 		
-		frame.pack();
 	}
 	
 	
 	// Building the GUI
-	public JTabbedPane initGUI() {		
+	public void initGUI() {		
 	
 		JTabbedPane tabbedPanel = new JTabbedPane();
 		tabbedPanel.setTabPlacement(JTabbedPane.BOTTOM);
@@ -79,7 +81,10 @@ public class Launcher extends JPanel implements ActionListener{
 			}
 		}
 		
-		return tabbedPanel; 
+		this.tabbedPanels = tabbedPanel; 
+		
+		BrainPanel test = new BrainPanel(tabbedPanels);
+		leftPanel.add(test);
 	} 
 	
 	// Builds the main Panel
@@ -88,14 +93,12 @@ public class Launcher extends JPanel implements ActionListener{
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 				
 		leftPanel = new JPanel(new GridLayout(1,1));
-		leftPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
+		// leftPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		leftPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
-		BrainPanel test = new BrainPanel();
-		leftPanel.add(test);
 		
 		rightPanel = new JPanel();
-		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
+		// rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		rightPanel.setBorder(BorderFactory.createTitledBorder(""));
 		JLabel right = new JLabel("right testing");	
 		rightPanel.add(right);
