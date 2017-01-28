@@ -38,7 +38,6 @@ public class Launcher extends JPanel
 	public Launcher() {             
 		MenuBar mb = new MenuBar(frame);
 	    StatusBar sb = new StatusBar(frame);
-	    
 	    initGUI();
 		
         
@@ -50,9 +49,8 @@ public class Launcher extends JPanel
 		frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(tabbedPanels);
-		frame.setJMenuBar(mb);
-		frame.setVisible(true);
 		
+		frame.setVisible(true);
 	}
 	
 	
