@@ -2,6 +2,8 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.Stack;
+
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -11,6 +13,7 @@ import javax.swing.JTabbedPane;
 
 import InfoBars.MenuBar;
 import InfoBars.StatusBar;
+import Tools.TabChanges;
 
 
 public class Launcher extends JPanel
@@ -19,7 +22,7 @@ public class Launcher extends JPanel
 	private static final long serialVersionUID = 1L;
 
 	private JFrame frame = new JFrame();
-	
+	private Stack tabHist = new Stack();
 	// Status Bar
 	JLabel statusBar; 
 	
@@ -78,7 +81,9 @@ public class Launcher extends JPanel
 		}
 		
 		this.tabbedPanels = tabbedPanel; 
-		
+		tabHist.push(new Integer(0));
+		System.out.println(tabHist);
+		tabbedPanels.addChangeListener(new TabChanges(tabHist, tabbedPanels));
 		BrainPanel test = new BrainPanel(tabbedPanels);
 		leftPanel.add(test);
 	} 

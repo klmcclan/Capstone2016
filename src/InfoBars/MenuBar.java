@@ -15,7 +15,7 @@ public class MenuBar extends JMenuBar{
 	JMenuBar menuBar;
 	JMenu mFile, mView, mActions;
 	JMenuItem miSave, miExit;
-	JMenuItem miStart, miStop;
+	JMenuItem miStart, miStop, miBack;
 	
 	public MenuBar(JFrame frame) {
 		menuBar = new JMenuBar();
@@ -29,6 +29,8 @@ public class MenuBar extends JMenuBar{
 		miStart = new JMenuItem("Start Recording");
 		miStop = new JMenuItem("Stop Recording");
 		
+		miBack = new JMenuItem("Back");
+		
 		miExit.addActionListener((ActionEvent event) -> {
 			System.exit(0);
 		});
@@ -36,13 +38,14 @@ public class MenuBar extends JMenuBar{
 		mFile.add(miSave);
 		mFile.add(miExit);
 		
+		mActions.add(miBack);
 		mActions.add(miStart);
 		mActions.add(miStop);
 		
 		menuBar.add(mFile);
 		menuBar.add(mView);
 		menuBar.add(mActions);
-		
+		frame.setJMenuBar(menuBar);
 	}
 	
 	
