@@ -41,7 +41,7 @@ public class Launcher extends JPanel
 	// Changed these to fit the GUI to my screen - appropriate ratio is 1.5 width/height
 	final int WIDTH = 900;	
 	final int HEIGHT = 700;
-	
+		
 	public Launcher() {                
 		MenuBar mb = new MenuBar(frame);
 	    StatusBar sb = new StatusBar(frame);
@@ -98,8 +98,8 @@ public class Launcher extends JPanel
 		leftPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
 		leftPanel.setBorder(BorderFactory.createTitledBorder(""));
 		
-		BrainPanel test = new BrainPanel();
-		leftPanel.add(test);
+		BrainPanel bPanel = new BrainPanel();
+		leftPanel.add(bPanel);
 		
 		rightPanel = new JPanel();
 		rightPanel.setPreferredSize(new Dimension(WIDTH/2, HEIGHT));
